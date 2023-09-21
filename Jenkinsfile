@@ -4,6 +4,7 @@ pipeline {
     }
     environment {
         DOCKER_TAG = "v${env.BUILD_NUMBER}"
+        FOSSA_API_KEY = ""
     }
     options{
         // Stop the build early in case of compile or test failures
@@ -22,7 +23,7 @@ pipeline {
             steps {
                 script {                
                    withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
-                     env['FOSSA_API_KEY'] = $fossaApiKey
+                     FOSSA_API_KEY = $fossaApiKey
                        sh 'fossa analyze'
                                        
                     }
