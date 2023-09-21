@@ -21,7 +21,7 @@ pipeline {
            
             
             steps {
-                //script {
+                
                     
 
                     withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
@@ -29,7 +29,7 @@ pipeline {
                      }
 
                        sh 'fossa analyze '
-                    //}
+                    
 
                     
                 }
