@@ -21,18 +21,14 @@ pipeline {
            
             
             steps {
-                script {
-                    //def shell = pipelineUtilities.getShellCommand()
-
-
-                    //pre-scan setup - just clone. Fossa doesn't need build tool setup.
-                    //pipelineUtilities.cleanWorkspaceAndCheckoutSourceCode(pconfig)
+                //script {
+                    
 
                     withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
                         env['FOSSA_API_KEY'] = fossaApiKey
 
                        sh 'fossa analyze'
-                    }
+                    //}
 
                     
                 }
