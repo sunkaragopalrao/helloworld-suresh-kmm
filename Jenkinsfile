@@ -18,7 +18,7 @@ pipeline {
             }
         }
         stage('SCA - Fossa Pilot - Scan') {
-            agent { label 'maven' }
+           
             
             steps {
                 script {
