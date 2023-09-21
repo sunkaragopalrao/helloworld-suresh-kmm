@@ -24,7 +24,7 @@ pipeline {
                               
                    withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
                        sh 'fossa list-targets'
-                       sh 'fossa analyze --fossa-api-key=$fossaApiKey --title=test-mavne  --release-group-release=1.0 --debug'
+                       sh 'fossa analyze --fossa-api-key $fossaApiKey --title=test-mavne --debug'
                                        
                     
                 }
