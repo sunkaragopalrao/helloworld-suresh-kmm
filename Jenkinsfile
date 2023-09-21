@@ -22,7 +22,7 @@ pipeline {
             
             steps {
                 script {
-                    def shell = pipelineUtilities.getShellCommand()
+                    //def shell = pipelineUtilities.getShellCommand()
 
 
                     //pre-scan setup - just clone. Fossa doesn't need build tool setup.
