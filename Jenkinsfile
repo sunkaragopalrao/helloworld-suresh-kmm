@@ -23,7 +23,7 @@ pipeline {
             steps {
                               
                    withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
-                       sh 'fossa list-targets'
+                       "${shell}"("fossa list-targets")
                        sh 'fossa analyze --fossa-api-key $fossaApiKey --title=test-mavne --debug'
                                        
                     
