@@ -19,11 +19,7 @@ pipeline {
         }
         stage('SCA - Fossa Pilot - Scan') {
             agent { label 'maven' }
-            when {
-                expression {
-                    //pconfig.getWantsUseFossaPilot()
-                }
-            }
+            
             steps {
                 script {
                     def shell = pipelineUtilities.getShellCommand()
@@ -39,7 +35,7 @@ pipeline {
                     "${shell}"("fossa list-targets")
 
                     "${shell}"("fossa analyze" +
-                            " --title " + pconfig.getProjectVersion() +
+                            " --title " + test-project +
                             " --release-group-name 'fossa-pilot-synopsys-io-pipeline'" +
                             " --release-group-release '1.0' " +
                             " --debug")
