@@ -23,8 +23,8 @@ pipeline {
             steps {
                               
                    withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
-                     FOSSA_API_KEY = $fossaApiKey
-                       sh 'fossa analyze'
+                     
+                       sh 'fossa analyze --fossa-api-key=$fossaApiKey --title=test-mavne --release-group-name=fossa-pilot-synopsys-io-pipeline --release-group-release=1.0 --debug'
                                        
                     
                 }
