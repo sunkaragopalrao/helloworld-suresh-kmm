@@ -21,7 +21,7 @@ pipeline {
             agent { label 'maven' }
             when {
                 expression {
-                    pconfig.getWantsUseFossaPilot()
+                    //pconfig.getWantsUseFossaPilot()
                 }
             }
             steps {
@@ -30,7 +30,7 @@ pipeline {
 
 
                     //pre-scan setup - just clone. Fossa doesn't need build tool setup.
-                    pipelineUtilities.cleanWorkspaceAndCheckoutSourceCode(pconfig)
+                    //pipelineUtilities.cleanWorkspaceAndCheckoutSourceCode(pconfig)
 
                     withCredentials([string(credentialsId: pipelineConstants.FOSSA_API_KEY_NAME, variable: 'fossaApiKey')]) {
                         env['FOSSA_API_KEY'] = fossaApiKey
