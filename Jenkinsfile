@@ -23,7 +23,7 @@ pipeline {
                                 
                    withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
                      //sh 'env[\'FOSSA_API_KEY\'] = $fossaApiKey'
-                    sh 'curl -H \'Cache-Control: no-cache\' https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash'
+                   // sh 'curl -H \'Cache-Control: no-cache\' https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash'
                        sh 'fossa analyze --fossa-api-key=$fossaApiKey'
                                        
                 }
