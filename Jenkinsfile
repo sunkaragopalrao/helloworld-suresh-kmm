@@ -1,5 +1,5 @@
 pipeline {
-    //agent{
+    agent none //{
         //label 'nodejs'
     //}
     environment {
