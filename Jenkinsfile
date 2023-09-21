@@ -20,11 +20,12 @@ pipeline {
         stage('SCA - Fossa Pilot - Scan') {
                     
             steps {
-                                
+                script {                
                    withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
-                     
-                       sh 'fossa analyze --fossa-api-key=$fossaApiKey'
+                     env['FOSSA_API_KEY'] = $fossaApiKey
+                       sh 'fossa analyze'
                                        
+                    }
                 }
             }
         }
