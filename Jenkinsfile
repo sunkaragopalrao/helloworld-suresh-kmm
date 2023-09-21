@@ -36,7 +36,7 @@ pipeline {
 
                     "${shell}"("fossa analyze" +
                             " --title " + test-project +
-                            " --release-group-name 'fossa-pilot-synopsys-io-pipeline'" +
+                            
                             " --release-group-release '1.0' " +
                             " --debug")
                 }
