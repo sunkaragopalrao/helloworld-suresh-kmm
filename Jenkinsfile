@@ -18,7 +18,7 @@ pipeline {
             }
         }
         stage('SCA - Fossa Pilot - Scan') {
-            agent { label 'fossa' }
+            agent { label 'maven' }
             when {
                 expression {
                     pconfig.getWantsUseFossaPilot()
