@@ -24,7 +24,7 @@ pipeline {
                    withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
                      //sh 'env[\'FOSSA_API_KEY\'] = $fossaApiKey'
 
-                       sh 'fossa analyze --fossa-api-key=$fossaApiKey'
+                       sh 'sudo fossa analyze --fossa-api-key=$fossaApiKey'
                                        
                 }
             }
