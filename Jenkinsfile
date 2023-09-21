@@ -25,9 +25,10 @@ pipeline {
                     
 
                     withCredentials([string(credentialsId: 'FOSSA_API_KEY_NAME', variable: 'fossaApiKey')]) {
-                     script{   env['FOSSA_API_KEY'] = fossaApiKey}
+                     script{   env['FOSSA_API_KEY'] = $fossaApiKey
+                     }
 
-                       sh 'fossa analyze'
+                       sh 'fossa analyze '
                     //}
 
                     
