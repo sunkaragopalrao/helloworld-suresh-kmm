@@ -22,4 +22,4 @@ jobs:
             environment="pro"
           fi
           echo "Environment: $environment"
-          echo "::set-env name=environment::$environment"
+          
