@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Set Environment Variable
         run: |
-          job_name=${{ env.job_name }}
+          job_name=${{ github.job }}
           if [[ $job_name == *"preprod"* ]]; then
             echo "Environment: $environment"
           elif [[ $job_name == *"prod"* ]]; then
