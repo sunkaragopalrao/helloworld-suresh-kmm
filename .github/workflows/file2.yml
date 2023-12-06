@@ -16,11 +16,10 @@ jobs:
       - name: Set Environment Variable
         run: |
           job_name=${{ github.job }}
-          if [[ $job_name == *"preprod"* ]]; then
-            echo "ENVIRONMENT=pre" >> $GITHUB_ENV
-          else 
-            echo "ENVIRONMENT=pre" >> $GITHUB_ENV
-          
+          if echo "$job_name" | grep -q "preprod"; then
+            echo "Found 'preprod' in the string"
+          else
+            echo "Not found 'preprod' in the string"
           fi
           
           
