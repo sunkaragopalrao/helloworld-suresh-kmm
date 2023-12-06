@@ -1,0 +1,28 @@
+name: Call API Example
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        required: true
+        type: string
+      password:
+        required: true
+        type: string
+
+jobs:
+  do_the_thing:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mask Password
+      run: |
+        API_PASSWORD=$(jq -r '.inputs.password' $GITHUB_EVENT_PATH)
+        echo ::add-mask::$API_PASSWORD
+        echo API_PASSWORD=$API_PASSWORD >> $GITHUB_ENV
+    - name: Call API
+      uses: fjogeleit/http-request-action@v1.11.1
+      with:
+        url: https://www.example.com/api/awesome/stuff
+        method: 'POST'
+        username: ${{ github.event.inputs.username }}
+        password: ${{ env.API_PASSWORD }}
