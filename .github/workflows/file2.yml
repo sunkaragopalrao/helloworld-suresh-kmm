@@ -1,0 +1,25 @@
+name: Your Workflow Name
+
+on:
+  push:
+    branches:
+      - main # Adjust branch name as needed
+
+jobs:
+  helm_nginx_deploy_preprod:
+    runs-on: ubuntu-latest
+    env:
+      job_name: ${{ github.job }}
+      environment: ''
+
+    steps:
+      - name: Set Environment Variable
+        run: |
+          job_name=${{ env.job_name }}
+          if [[ $job_name == "PREPROD" ]]; then
+            environment="pre"
+          else
+            environment="pro"
+          fi
+          echo "Environment: $environment"
+          echo "::set-env name=environment::$environment"
