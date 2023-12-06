@@ -17,7 +17,7 @@ jobs:
         run: |
           job_name=${{ env.job_name }}
           if [[ $job_name == *"preprod"* ]]; then
-            echo "::set-output name=environment::preprod"
+            echo "Environment: $environment"
           elif [[ $job_name == *"prod"* ]]; then
             echo "Environment: $environment"
           else
