@@ -18,7 +18,7 @@ jobs:
           job_name=${{ github.job }}
           if [[ $job_name == *"preprod"* ]]; then
             echo "ENVIRONMENT=pre" >> $GITHUB_ENV
-          else [[ $job_name == *"prod"* ]]; then
+          else 
             echo "ENVIRONMENT=pre" >> $GITHUB_ENV
           
           fi
