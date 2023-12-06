@@ -16,10 +16,12 @@ jobs:
       - name: Set Environment Variable
         run: |
           job_name=${{ env.job_name }}
-          if [[ $job_name == "PREPROD" ]]; then
-            environment="pre"
+          if [[ $job_name == *"preprod"* ]]; then
+            echo "::set-output name=environment::preprod"
+          elif [[ $job_name == *"prod"* ]]; then
+            echo "Environment: $environment"
           else
-            environment="pro"
+            echo "Environment: $environment"
           fi
-          echo "Environment: $environment"
+          
           
