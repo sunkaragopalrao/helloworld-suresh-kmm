@@ -19,7 +19,7 @@ jobs:
           provided_user_id=$INPUT_USER_ID
 
           # Define the expected user ID (You might want to store this securely as a secret)
-          expected_user_id='SureshUppelli'
+          expected_user_id='userid'
 
           # Check if the provided user ID matches the expected user ID
           if [ "$provided_user_id" == "$expected_user_id" ]; then
