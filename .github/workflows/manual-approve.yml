@@ -22,9 +22,9 @@ jobs:
     #needs: build-and-test
     environment: 
       name: staging, Preprod
-    steps:
-      - name: Wait for Approval
-        run: echo "This job waits for manual approval in the 'staging' environment."
+    #steps:
+      #- name: Wait for Approval
+        #run: echo "This job waits for manual approval in the 'staging' environment."
 
   deploy:
     runs-on: ubuntu-latest
