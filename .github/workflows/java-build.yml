@@ -1,0 +1,27 @@
+name: Maven Build
+
+on:
+  push:
+    branches:
+      - main  # You can change this to your primary branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml  # Modify 'pom.xml' if your POM file has a different name/location
+
+      - name: Run tests
+        run: mvn test  # Modify this if your test command differs
+
+      # You can add additional steps here, such as deploying or publishing artifacts
