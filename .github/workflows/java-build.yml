@@ -20,7 +20,9 @@ jobs:
           distribution: 'adopt'
 
       - name: Build with Maven
-        run: mvn -B package --file pom.xml  # Modify 'pom.xml' if your POM file has a different name/location
+        run: |
+             mvn clean install
+             mvn -B package --file pom.xml  # Modify 'pom.xml' if your POM file has a different name/location
 
       - name: Run tests
         run: mvn test  # Modify this if your test command differs
