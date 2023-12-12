@@ -17,10 +17,19 @@ pipeline {
         }
         stage("Docker Build"){
             steps{
-                sh label: '', script: '''docker build --build-arg JAR_FILE=target/*.jar .'''
+                sh label: '', script: '''
+                aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 863532638265.dkr.ecr.us-east-1.amazonaws.com
+                docker build --build-arg JAR_FILE=target/*.jar java-app .'''
             }
         }
-        
+        stage("push Image"){
+            steps{
+                sh label: '', script: '''
+                docker tag java-app:latest 863532638265.dkr.ecr.us-east-1.amazonaws.com/java-app:latest
+                docker push 863532638265.dkr.ecr.us-east-1.amazonaws.com/java-app:latest'''
+            }
+            
+        }        
         
     }
 } 
