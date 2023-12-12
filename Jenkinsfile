@@ -19,7 +19,7 @@ pipeline {
             steps{
                 sh label: '', script: '''
                 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 863532638265.dkr.ecr.us-east-1.amazonaws.com
-                docker build --build-arg JAR_FILE=target/*.jar java-app .'''
+                docker build --build-arg JAR_FILE=target/*.jar -t java-app .'''
             }
         }
         stage("push Image"){
