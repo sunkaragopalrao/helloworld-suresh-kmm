@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'maven'
-    }
+    agent any
     environment {
         DOCKER_TAG = "v${env.BUILD_NUMBER}"
         
